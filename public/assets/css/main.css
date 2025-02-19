@@ -8,7 +8,26 @@
     --text-light: #ffffff;
     --text-dark: #222222;
     --background-light: #f8f9fa;
+	--background-dark: #0F172A;
     --shadow-color: rgba(0, 0, 0, 0.2);
+	--card-bg: #ffffff;
+	--border-color: #4B5563;
+	--loading-color: #FFD700;
+	--chat-bg: #1E293B;
+	--user-bubble: #2563EB;
+	--bot-bubble: #374151;
+	--input-bg: #1F2937;
+    --light-color: #FFFFFF; /* White (for contrast) */
+    --dark-color: #000000; /* Black (if needed) */
+    --text-opacity: 0.8; /* Opacity for main text */
+    --footer-shadow: rgba(0, 0, 0, 0.2); /* Footer shadow color */
+    --overlay-bg: rgba(0, 0, 0, 0.6);
+    --glass-bg: rgba(0, 39, 77, 0.85);
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --table-header-bg: #001f3f;
+    --table-row-light: #f8f9fa;
+    --table-row-dark: #e2e3e5;
+    --service-bg: #1E293B; /* Slightly lighter blue */
 }
 
 /* General Page Styling */
@@ -18,7 +37,7 @@ body {
     color: var(--text-light);
     margin: 0;
     padding: 0;
-    min-height: 100vh; 
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow-x: hidden; /* Prevents horizontal scroll on some mobile browsers */
@@ -27,7 +46,7 @@ body {
 /* Hero Section */.hero {
     position: relative;
     min-height: 70vh; /* Use min-height for flexibility */
-    padding: 3rem 1rem; 
+    padding: 3rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,7 +124,7 @@ body {
     gap: 1rem;
 }.course-overview li {
     font-size: 1.2rem;
-    margin: 0; 
+    margin: 0;
     padding: 1rem;
     background: rgba(255, 215, 0, 0.1);
     border-left: 5px solid var(--secondary-color);

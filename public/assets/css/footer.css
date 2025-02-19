@@ -1,12 +1,3 @@
-:root {
-    --primary-color: #FFD700; /* Gold */
-    --secondary-color: #001F3F; /* Dark Blue */
-    --light-color: #FFFFFF; /* White (for contrast) */
-    --dark-color: #000000; /* Black (if needed) */
-    --text-opacity: 0.8; /* Opacity for main text */
-    --footer-shadow: rgba(0, 0, 0, 0.2); /* Footer shadow color */
-}
-
 /* Footer Styling */
 footer {
     background: linear-gradient(to right, var(--secondary-color), var(--tertiary-color), var(--primary-color));

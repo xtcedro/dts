@@ -1,13 +1,3 @@
-/* ✅ Color Variables */
-:root {
-    --primary-color: #00274D; /* Dark Blue */
-    --secondary-color: #FFD700; /* Gold */
-    --background-dark: #001A33; /* Darker Shade of Blue */
-    --text-light: #ffffff;
-    --text-dark: #222;
-}
-
-
 /* ✅ Donation Section */
 .donation-container {
     background: var(--background-dark);

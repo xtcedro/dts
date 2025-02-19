@@ -1,18 +1,6 @@
 /* ✅ Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* ✅ Global Color Variables */
-:root {
-    --primary-color: #001F3F; /* Deep Navy */
-    --secondary-color: #FFD700; /* Gold */
-    --text-light: #ffffff;
-    --text-dark: #222222;
-    --background-light: #F8F9FA;
-    --input-bg: #1F2937;
-    --border-color: #FFD700;
-    --shadow-color: rgba(0, 0, 0, 0.15);
-}
-
 /* ✅ Appointment Booker Section */
 .appointment-booker {
     background: var(--text-light);

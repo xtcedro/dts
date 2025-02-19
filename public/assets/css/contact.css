@@ -1,16 +1,6 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Color Variables */
-:root {
-    --primary-color: #001F3F; /* Dark Blue */
-    --secondary-color: #FFD700; /* Gold */
-    --text-light: #ffffff;
-    --text-dark: #222222;
-    --background-light: #F8F9FA; /* Light Gray */
-    --border-color: #FFD700;
-}
-
 /* Contact Information Section */
 .contact-info {
     background: var(--background-light);
