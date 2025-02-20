@@ -8,15 +8,15 @@
     --text-light: #ffffff;
     --text-dark: #222222;
     --background-light: #f8f9fa;
-	--background-dark: #0F172A;
+   	--background-dark: #0F172A;
     --shadow-color: rgba(0, 0, 0, 0.2);
-	--card-bg: #ffffff;
-	--border-color: #4B5563;
-	--loading-color: #FFD700;
-	--chat-bg: #1E293B;
-	--user-bubble: #2563EB;
-	--bot-bubble: #374151;
-	--input-bg: #1F2937;
+   	--card-bg: #ffffff;
+   	--border-color: #4B5563;
+	   --loading-color: #FFD700;
+   	--chat-bg: #1E293B;
+   	--user-bubble: #2563EB;
+   	--bot-bubble: #374151;
+   	--input-bg: #1F2937;
     --light-color: #FFFFFF; /* White (for contrast) */
     --dark-color: #000000; /* Black (if needed) */
     --text-opacity: 0.8; /* Opacity for main text */
