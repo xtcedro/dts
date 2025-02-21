@@ -11,20 +11,20 @@ export function initializeChatbot() {
     sendButton.addEventListener("click", sendMessage);
     userInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
-            e.preventDefault(); // Prevent accidental form submission
+            e.preventDefault();
             sendMessage();
         }
     });
 
     async function fetchChatHistory() {
         try {
-            const token = localStorage.getItem("token"); // Retrieve JWT token (if user is logged in)
+            const token = localStorage.getItem("token");
             const response = await fetch("/api/chat/history", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": token ? `Bearer ${token}` : "",
-                }
+                },
             });
 
             if (!response.ok) throw new Error("Failed to fetch chat history");
@@ -34,8 +34,23 @@ export function initializeChatbot() {
                 appendMessage("user", "You", formatMessage(chat.user_message));
                 appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", formatMessage(chat.bot_reply));
             });
+
+            // Store messages in local storage for persistence
+            localStorage.setItem("chatHistory", JSON.stringify(data.history));
         } catch (error) {
             console.error("Error fetching chat history:", error);
+            loadLocalChatHistory(); // Fallback to stored history if API fails
+        }
+    }
+
+    function loadLocalChatHistory() {
+        const storedHistory = localStorage.getItem("chatHistory");
+        if (storedHistory) {
+            const chatHistory = JSON.parse(storedHistory);
+            chatHistory.forEach(chat => {
+                appendMessage("user", "You", formatMessage(chat.user_message));
+                appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", formatMessage(chat.bot_reply));
+            });
         }
     }
 
@@ -44,7 +59,7 @@ export function initializeChatbot() {
             const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({})
+                body: JSON.stringify({}),
             });
 
             const data = await response.json();
@@ -81,7 +96,7 @@ export function initializeChatbot() {
         let index = 0;
         const tempDiv = document.createElement("div");
         tempDiv.innerHTML = message;
-        const textContent = tempDiv.textContent || tempDiv.innerText; // Extract pure text
+        const textContent = tempDiv.textContent || tempDiv.innerText;
 
         function typeCharacter() {
             if (index < textContent.length) {
@@ -101,7 +116,7 @@ export function initializeChatbot() {
         userInput.value = "";
 
         try {
-            const token = localStorage.getItem("token"); // Retrieve user token
+            const token = localStorage.getItem("token");
             const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: {
@@ -113,9 +128,24 @@ export function initializeChatbot() {
 
             const data = await response.json();
             appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", formatMessage(data.reply), true);
+
+            // Update stored chat history
+            updateLocalChatHistory(message, data.reply);
         } catch (error) {
             appendMessage("error", "Error", "AI service is currently unavailable.");
         }
+    }
+
+    function updateLocalChatHistory(userMessage, botReply) {
+        let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
+        chatHistory.push({ user_message: userMessage, bot_reply: botReply });
+
+        // Keep only the last 10 messages for efficiency
+        if (chatHistory.length > 10) {
+            chatHistory = chatHistory.slice(-10);
+        }
+
+        localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
     }
 
     function formatMessage(message) {
