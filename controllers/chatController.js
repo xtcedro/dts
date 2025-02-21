@@ -94,3 +94,20 @@ export const chatController = async (req, res) => {
         res.status(500).json({ error: "AI processing failed. Please try again later." });
     }
 };
+
+export const fetchChatHistory = async (req, res) => {
+    try {
+        const userId = req.user ? req.user.id : null; // Get user ID from token (if authenticated)
+
+        // Retrieve last 10 messages (adjust as needed)
+        const [history] = await db.query(
+            "SELECT user_message, bot_reply FROM chat_history WHERE user_id = ? ORDER BY created_at DESC LIMIT 10",
+            [userId || null]
+        );
+
+        res.json({ history });
+    } catch (error) {
+        console.error("Error fetching chat history:", error);
+        res.status(500).json({ error: "Failed to retrieve chat history" });
+    }
+};
