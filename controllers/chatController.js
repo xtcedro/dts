@@ -40,7 +40,7 @@ export const chatController = async (req, res) => {
         if (!message) {
             return res.json({
                 reply: `
-                <b>Welcome to Dominguez Tech Solutions! 🚀</b><br><br>
+               <b>Welcome to Dominguez Tech Solutions! 🚀</b><br><br>
                 I’m your AI assistant, here to help with <b>AI integration, web development, and business automation.</b><br><br>
 
                 🎓 <b>Join the AI & Web Development Crash Course!</b> Secure your seat for <b>$69</b>.<br>
@@ -54,7 +54,7 @@ export const chatController = async (req, res) => {
                 <a href="mailto:domingueztechsolutions@gmail.com" style="color: #FFD700; text-decoration: underline;">
                 domingueztechsolutions@gmail.com</a>.<br><br>
 
-                <b>How can I assist you today? 😊</b>
+                <b>How can I assist you today? 😊</b> 
                 `
             });
         }
