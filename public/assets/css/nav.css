@@ -212,7 +212,7 @@
     }
 
     .nav-title {
-        font-size: 1.2rem;
+        font-size: 0.5rem;
     }
 
     .hamburger-menu {
@@ -252,7 +252,7 @@
     }
 
     .nav-links a {
-        font-size: 0.9rem;
+        font-size: 0.5rem;
         padding: 6px;
     }
 }
