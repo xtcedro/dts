@@ -116,3 +116,63 @@
         transform: translateY(0);
     }
 }
+
+@media screen and (max-width: 768px) {
+    /* Make the table scrollable */
+    .pricing-table-container {
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+        width: 100%;
+    }
+
+    /* Hide headers for mobile */
+    .pricing-table thead {
+        display: none;
+    }
+
+    /* Convert table to stacked blocks */
+    .pricing-table, 
+    .pricing-table tbody, 
+    .pricing-table tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #ddd;
+    }
+
+    /* Convert table cells into flexible rows */
+    .pricing-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px;
+        font-size: 1rem;
+        border-bottom: 1px solid #ccc;
+        background: #f9f9f9;
+    }
+
+    /* Ensure labels are visible */
+    .pricing-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #00509e;
+        margin-right: 10px;
+    }
+
+    /* Reduce spacing for smaller screens */
+    .pricing-comparison {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    .pricing-comparison h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .table-cta {
+        padding: 15px;
+        font-size: 1rem;
+    }
+}
