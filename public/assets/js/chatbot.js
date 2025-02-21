@@ -11,55 +11,17 @@ export function initializeChatbot() {
     sendButton.addEventListener("click", sendMessage);
     userInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
-            e.preventDefault();
+            e.preventDefault(); // Prevent accidental form submission
             sendMessage();
         }
     });
-
-    async function fetchChatHistory() {
-        try {
-            const token = localStorage.getItem("token");
-            const response = await fetch("/api/chat/history", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": token ? `Bearer ${token}` : "",
-                },
-            });
-
-            if (!response.ok) throw new Error("Failed to fetch chat history");
-
-            const data = await response.json();
-            data.history.forEach(chat => {
-                appendMessage("user", "You", formatMessage(chat.user_message));
-                appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", formatMessage(chat.bot_reply));
-            });
-
-            // Store messages in local storage for persistence
-            localStorage.setItem("chatHistory", JSON.stringify(data.history));
-        } catch (error) {
-            console.error("Error fetching chat history:", error);
-            loadLocalChatHistory(); // Fallback to stored history if API fails
-        }
-    }
-
-    function loadLocalChatHistory() {
-        const storedHistory = localStorage.getItem("chatHistory");
-        if (storedHistory) {
-            const chatHistory = JSON.parse(storedHistory);
-            chatHistory.forEach(chat => {
-                appendMessage("user", "You", formatMessage(chat.user_message));
-                appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", formatMessage(chat.bot_reply));
-            });
-        }
-    }
 
     async function fetchIntroduction() {
         try {
             const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({}),
+                body: JSON.stringify({})
             });
 
             const data = await response.json();
@@ -96,7 +58,7 @@ export function initializeChatbot() {
         let index = 0;
         const tempDiv = document.createElement("div");
         tempDiv.innerHTML = message;
-        const textContent = tempDiv.textContent || tempDiv.innerText;
+        const textContent = tempDiv.textContent || tempDiv.innerText; // Extract pure text
 
         function typeCharacter() {
             if (index < textContent.length) {
@@ -116,36 +78,17 @@ export function initializeChatbot() {
         userInput.value = "";
 
         try {
-            const token = localStorage.getItem("token");
             const response = await fetch("/api/chat", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": token ? `Bearer ${token}` : "",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message }),
             });
 
             const data = await response.json();
             appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", formatMessage(data.reply), true);
-
-            // Update stored chat history
-            updateLocalChatHistory(message, data.reply);
         } catch (error) {
             appendMessage("error", "Error", "AI service is currently unavailable.");
         }
-    }
-
-    function updateLocalChatHistory(userMessage, botReply) {
-        let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
-        chatHistory.push({ user_message: userMessage, bot_reply: botReply });
-
-        // Keep only the last 10 messages for efficiency
-        if (chatHistory.length > 10) {
-            chatHistory = chatHistory.slice(-10);
-        }
-
-        localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
     }
 
     function formatMessage(message) {
@@ -156,7 +99,5 @@ export function initializeChatbot() {
             .replace(/(.*?)(https?:\/\/[^\s]+)/g, '<a href="$2" target="_blank" style="color: #FFD700; text-decoration: underline;">$1</a>'); // Convert [text](url) to clickable link
     }
 
-    // Load previous chat history and introduction message
-    fetchChatHistory();
     fetchIntroduction();
 }
