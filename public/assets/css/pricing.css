@@ -134,3 +134,53 @@
         padding: 12px 18px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    /* Make the table scrollable on small screens */
+    .pricing-table-container {
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+
+    /* Hide table headers and stack rows for better readability */
+    .pricing-table thead {
+        display: none;
+    }
+
+    .pricing-table, 
+    .pricing-table tbody, 
+    .pricing-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .pricing-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        font-size: 1rem;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .pricing-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    /* Reduce padding and font size for better spacing */
+    .pricing-comparison {
+        padding: 2rem 1rem;
+    }
+
+    .pricing-comparison h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    /* Adjust call-to-action button */
+    .table-cta {
+        padding: 15px;
+    }
+}
