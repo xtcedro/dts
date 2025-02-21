@@ -13,10 +13,10 @@ export const chatController = async (req, res) => {
         Stay professional, concise, and helpful. Ensure all responses reflect the following **accurate pricing**:
 
         🎓 **AI & Web Development Crash Course:**
-        - 💰 **One-time fee:** $69 per person  
+        - 💰 **One-time fee:** $69 per person
         - ✅ Includes course materials, real-world projects, and lifetime access to resources.
         - 📍 **Location:** Downtown Oklahoma City Metropolitan Library
-        - 📅 **Reserve your seat now:**  
+        - 📅 **Reserve your seat now:**
           <a href="https://www.domingueztechsolutions.com/appointment-booker.html" target="_blank" style="color: #FFD700; text-decoration: underline;">
           www.domingueztechsolutions.com/appointment-booker.html</a>
 
@@ -25,34 +25,34 @@ export const chatController = async (req, res) => {
         - 💼 **Business:** $200 (Advanced SEO, secure user accounts, email verification)
         - 🏆 **Enterprise:** $300 (Premium SEO, E-Commerce, Stripe/PayPal integration)
 
-        💡 **Custom Development:**  
+        💡 **Custom Development:**
         For specialized website features, pricing is based on project scope. Users should contact Dominguez Tech Solutions for a custom quote.
 
-        ✉️ **For inquiries, contact us at:**  
+        ✉️ **For inquiries, contact us at:**
         <a href="mailto:domingueztechsolutions@gmail.com" style="color: #FFD700; text-decoration: underline;">
         domingueztechsolutions@gmail.com</a>
 
-        **Important:** The **Appointment Booker** is **only** for enrolling in the AI & Web Development Crash Course.  
+        **Important:** The **Appointment Booker** is **only** for enrolling in the AI & Web Development Crash Course.
         For other services, users must **email or request a custom quote**.
         `;
 
-// Handle first interaction with a structured introduction
-if (!message) {
-    return res.json({
-        reply: `
-        <b>Welcome to Dominguez Tech Solutions! 🚀</b><br><br>
-        I’m your AI assistant, here to assist with <b>AI integration, web development, and business automation.</b><br><br>
+		// Handle first interaction with a structured introduction
+		if (!message) {
+			return res.json({
+				reply: `
+				<b>Welcome to Dominguez Tech Solutions! 🚀</b><br><br>
+				I’m your AI assistant, here to assist with <b>AI integration, web development, and business automation.</b><br><br>
 
-        📚 <b>AI & Web Development Crash Course</b> – <a href="https://www.domingueztechsolutions.com/appointment-booker.html" target="_blank" style="color: #FFD700; text-decoration: underline;">Reserve Your Spot</a>.<br><br>
+				📚 <b>AI & Web Development Crash Course</b> – <a href="https://www.domingueztechsolutions.com/appointment-booker.html" target="_blank" style="color: #FFD700; text-decoration: underline;">Reserve Your Spot</a>.<br><br>
 
-        🌐 <b>Web Development & Custom Solutions</b> – <a href="pricing.html" target="_blank" style="color: #FFD700; text-decoration: underline;">View Pricing</a>.<br><br>
+				🌐 <b>Web Development & Custom Solutions</b> – <a href="pricing.html" target="_blank" style="color: #FFD700; text-decoration: underline;">View Pricing</a>.<br><br>
 
-        📩 <b>Contact Us:</b> <a href="mailto:domingueztechsolutions@gmail.com" style="color: #FFD700; text-decoration: underline;">Email Here</a>.<br><br>
+				📩 <b>Contact Us:</b> <a href="mailto:domingueztechsolutions@gmail.com" style="color: #FFD700; text-decoration: underline;">Email Here</a>.<br><br>
 
-        <b>How can I assist you today?</b>
-        `
-    });
-}
+				<b>How can I assist you today?</b>
+				`
+			});
+		}
 
         // Retrieve chat history (last 5 messages) for better responses
         const [history] = await db.query(
