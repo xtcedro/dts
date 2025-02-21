@@ -1,5 +1,5 @@
 import express from "express";
-import { chatController, fetchChatHistory } from "../controllers/chatController.js";
+import { chatController } from "../controllers/chatController.js";
 
 const router = express.Router();
 
@@ -7,6 +7,5 @@ const router = express.Router();
 router.post("/", chatController);
 
 // Fetch chat history
-router.get("/history", fetchChatHistory);
 
 export default router;
