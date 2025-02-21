@@ -1,8 +1,12 @@
 import express from "express";
-import { chatController } from "../controllers/chatController.js"; // ✅ Use the correct export name
+import { chatController, fetchChatHistory } from "../controllers/chatController.js";
 
 const router = express.Router();
 
-router.post("/", chatController); // ✅ Use the correct function
+// User sends a new message -> AI responds and stores in DB
+router.post("/", chatController);
+
+// Fetch chat history
+router.get("/history", fetchChatHistory);
 
 export default router;
