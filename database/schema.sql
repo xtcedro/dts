@@ -22,6 +22,14 @@ CREATE TABLE IF NOT EXISTS appointments (
     INDEX idx_email (email)  -- Optimize email searches
 );
 
+CREATE TABLE IF NOT EXISTS chat_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NULL,  -- Can be NULL for anonymous chats
+    user_message TEXT NOT NULL,
+    bot_reply TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Optional: Insert sample data
 INSERT INTO appointments (name, phone, email, service, message)
 VALUES
