@@ -16,6 +16,29 @@ export function initializeChatbot() {
         }
     });
 
+    async function fetchChatHistory() {
+        try {
+            const token = localStorage.getItem("token"); // Retrieve JWT token (if user is logged in)
+            const response = await fetch("/api/chat/history", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": token ? `Bearer ${token}` : "",
+                }
+            });
+
+            if (!response.ok) throw new Error("Failed to fetch chat history");
+
+            const data = await response.json();
+            data.history.forEach(chat => {
+                appendMessage("user", "You", formatMessage(chat.user_message));
+                appendMessage("bot", "Dominguez Tech Solutions AI Assistant 🤖", formatMessage(chat.bot_reply));
+            });
+        } catch (error) {
+            console.error("Error fetching chat history:", error);
+        }
+    }
+
     async function fetchIntroduction() {
         try {
             const response = await fetch("/api/chat", {
@@ -78,9 +101,13 @@ export function initializeChatbot() {
         userInput.value = "";
 
         try {
+            const token = localStorage.getItem("token"); // Retrieve user token
             const response = await fetch("/api/chat", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": token ? `Bearer ${token}` : "",
+                },
                 body: JSON.stringify({ message }),
             });
 
@@ -99,5 +126,7 @@ export function initializeChatbot() {
             .replace(/(.*?)(https?:\/\/[^\s]+)/g, '<a href="$2" target="_blank" style="color: #FFD700; text-decoration: underline;">$1</a>'); // Convert [text](url) to clickable link
     }
 
+    // Load previous chat history and introduction message
+    fetchChatHistory();
     fetchIntroduction();
 }
