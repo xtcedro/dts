@@ -6,6 +6,7 @@
     <meta name="description" content="🌟 Choose the perfect website development plan at Dominguez Tech Solutions. Affordable pricing for every business size!">
     <title>💰 Website Pricing - Dominguez Tech Solutions</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/pricing.css">
     <script type="module" src="assets/js/script.js"></script>
 </head>
 <body>
@@ -26,65 +27,67 @@
         <h2>📊 Compare Our Plans</h2>
         <p class="pricing-description">Every business is unique—our website development packages are tailored to provide the right features at the right price.</p>
 
-        <table class="pricing-table">
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th>🚀 Starter</th>
-                    <th>💼 Business</th>
-                    <th>🏆 Enterprise</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>💻 Fully Responsive Design</td>
-                    <td>✔️</td>
-                    <td>✔️</td>
-                    <td>✔️</td>
-                </tr>
-                <tr>
-                    <td>🔍 SEO Optimization</td>
-                    <td>✔️ Basic</td>
-                    <td>✔️ Advanced</td>
-                    <td>✔️ Premium</td>
-                </tr>
-                <tr>
-                    <td>🔒 Secure User Accounts</td>
-                    <td>❌</td>
-                    <td>✔️</td>
-                    <td>✔️</td>
-                </tr>
-                <tr>
-                    <td>📧 Email Verification & Security</td>
-                    <td>❌</td>
-                    <td>✔️</td>
-                    <td>✔️</td>
-                </tr>
-                <tr>
-                    <td>💳 E-Commerce & Payments</td>
-                    <td>❌</td>
-                    <td>❌</td>
-                    <td>✔️ (Stripe, PayPal, etc.)</td>
-                </tr>
-                <tr>
-                    <td>💬 Customer Support</td>
-                    <td>📧 Email</td>
-                    <td>📧 Email & Chat</td>
-                    <td>📧 Email, Chat & Phone</td>
-                </tr>
-                <tr>
-                    <td>💲 Price</td>
-                    <td><strong>$100</strong></td>
-                    <td><strong>$200</strong></td>
-                    <td><strong>$300</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="table-cta">
-                        <a href="contact.html" class="cta-button">📞 Get a Custom Quote</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="pricing-table-container"> <!-- Added wrapper for scrollability -->
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>🚀 Starter</th>
+                        <th>💼 Business</th>
+                        <th>🏆 Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Feature">💻 Fully Responsive Design</td>
+                        <td data-label="Starter">✔️</td>
+                        <td data-label="Business">✔️</td>
+                        <td data-label="Enterprise">✔️</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Feature">🔍 SEO Optimization</td>
+                        <td data-label="Starter">✔️ Basic</td>
+                        <td data-label="Business">✔️ Advanced</td>
+                        <td data-label="Enterprise">✔️ Premium</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Feature">🔒 Secure User Accounts</td>
+                        <td data-label="Starter">❌</td>
+                        <td data-label="Business">✔️</td>
+                        <td data-label="Enterprise">✔️</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Feature">📧 Email Verification & Security</td>
+                        <td data-label="Starter">❌</td>
+                        <td data-label="Business">✔️</td>
+                        <td data-label="Enterprise">✔️</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Feature">💳 E-Commerce & Payments</td>
+                        <td data-label="Starter">❌</td>
+                        <td data-label="Business">❌</td>
+                        <td data-label="Enterprise">✔️ (Stripe, PayPal, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Feature">💬 Customer Support</td>
+                        <td data-label="Starter">📧 Email</td>
+                        <td data-label="Business">📧 Email & Chat</td>
+                        <td data-label="Enterprise">📧 Email, Chat & Phone</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Feature">💲 Price</td>
+                        <td data-label="Starter"><strong>$100</strong></td>
+                        <td data-label="Business"><strong>$200</strong></td>
+                        <td data-label="Enterprise"><strong>$300</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="table-cta">
+                            <a href="contact.html" class="cta-button">📞 Get a Custom Quote</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <!-- Why Choose Us Section -->
