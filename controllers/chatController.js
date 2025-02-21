@@ -36,28 +36,23 @@ export const chatController = async (req, res) => {
         For other services, users must **email or request a custom quote**.
         `;
 
-        // If no message is sent (first interaction), return a structured introduction
-        if (!message) {
-            return res.json({
-                reply: `
-               <b>Welcome to Dominguez Tech Solutions! 🚀</b><br><br>
-                I’m your AI assistant, here to help with <b>AI integration, web development, and business automation.</b><br><br>
+// Handle first interaction with a structured introduction
+if (!message) {
+    return res.json({
+        reply: `
+        <b>Welcome to Dominguez Tech Solutions! 🚀</b><br><br>
+        I’m your AI assistant, here to assist with <b>AI integration, web development, and business automation.</b><br><br>
 
-                🎓 <b>Join the AI & Web Development Crash Course!</b> Secure your seat for <b>$69</b>.<br>
-                📍 <b>Location:</b> Downtown Oklahoma City Metropolitan Library<br>
-                📅 <b>Reserve now:</b>  
-                <a href="https://www.domingueztechsolutions.com/appointment-booker.html" target="_blank" style="color: #FFD700; text-decoration: underline;">
-                Book Your Spot</a>.<br><br>
+        📚 <b>AI & Web Development Crash Course</b> – <a href="https://www.domingueztechsolutions.com/appointment-booker.html" target="_blank" style="color: #FFD700; text-decoration: underline;">Reserve Your Spot</a>.<br><br>
 
-                📩 <b>Need a website?</b> Get a professional site starting at <b>$100</b>.<br>
-                💡 <b>For inquiries, email:</b>  
-                <a href="mailto:domingueztechsolutions@gmail.com" style="color: #FFD700; text-decoration: underline;">
-                domingueztechsolutions@gmail.com</a>.<br><br>
+        🌐 <b>Web Development & Custom Solutions</b> – <a href="pricing.html" target="_blank" style="color: #FFD700; text-decoration: underline;">View Pricing</a>.<br><br>
 
-                <b>How can I assist you today? 😊</b> 
-                `
-            });
-        }
+        📩 <b>Contact Us:</b> <a href="mailto:domingueztechsolutions@gmail.com" style="color: #FFD700; text-decoration: underline;">Email Here</a>.<br><br>
+
+        <b>How can I assist you today?</b>
+        `
+    });
+}
 
         // Retrieve chat history (last 5 messages) for better responses
         const [history] = await db.query(
