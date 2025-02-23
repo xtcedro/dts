@@ -182,14 +182,7 @@ body {
     color: var(--text-light);
 }
 
-/* Footer Styling */
-#footer {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    text-align: center;
-    padding: 1rem;
-    margin-top: auto; /* Push footer to bottom */
-}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
