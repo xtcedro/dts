@@ -1,6 +1,21 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+/* Color Variables */
+:root {
+    --primary-color: #001F3F; /* Dark Blue */
+    --secondary-color: #FFD700; /* Gold */
+    --text-light: #ffffff;
+    --text-dark: #222222;
+    --background-dark: #0F172A; /* Dark theme background */
+    --chat-bg: #1E293B; /* Chat container background */
+    --user-bubble: #2563EB; /* User message bubble */
+    --bot-bubble: #374151; /* Bot message bubble */
+    --input-bg: #1F2937;
+    --border-color: #4B5563;
+}
+
+
 /* Chat Container */
 .chat-container {
     width: 60%;

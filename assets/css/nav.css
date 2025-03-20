@@ -1,6 +1,17 @@
 /* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+/* Color Variables */
+:root {
+    --primary-color: #00274D; /* Dark Blue */
+    --secondary-color: #FFD700; /* Gold */
+    --text-light: #ffffff;
+    --text-dark: #222222;
+    --overlay-bg: rgba(0, 0, 0, 0.6);
+    --glass-bg: rgba(0, 39, 77, 0.85);
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
 /* Smooth Animations */
 * {
     transition: all 0.3s ease-in-out;
@@ -212,7 +223,7 @@
     }
 
     .nav-title {
-        font-size: 1.7rem;
+        font-size: 1.2rem;
     }
 
     .hamburger-menu {
@@ -239,7 +250,7 @@
     }
 
     .nav-title {
-        font-size: 1.7rem;
+        font-size: 1rem;
     }
 
     .hamburger-menu {
@@ -252,7 +263,7 @@
     }
 
     .nav-links a {
-        font-size: 0.5rem;
+        font-size: 0.9rem;
         padding: 6px;
     }
 }

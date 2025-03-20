@@ -2,32 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 /* Color Variables */:root {
-    --primary-color: linear-gradient(135deg, #001f3f, #003366, #002244, #000000); /* Dark Blue to Black */
+    --primary-color: #001F3F; /* Dark Blue */
     --secondary-color: #FFD700; /* Gold */
     --accent-color: #007bff; /* Blue accent */
     --text-light: #ffffff;
     --text-dark: #222222;
     --background-light: #f8f9fa;
-    --background-dark: #0F172A;
     --shadow-color: rgba(0, 0, 0, 0.2);
-    --card-bg: #ffffff;
-    --border-color: #4B5563;
-    --loading-color: #FFD700;
-    --chat-bg: #1E293B;
-    --user-bubble: #2563EB;
-    --bot-bubble: #374151;
-    --input-bg: #1F2937;
-    --light-color: #FFFFFF; /* White (for contrast) */
-    --dark-color: #000000; /* Black (if needed) */
-    --text-opacity: 0.8; /* Opacity for main text */
-    --footer-shadow: rgba(0, 0, 0, 0.2); /* Footer shadow color */
-    --overlay-bg: rgba(0, 0, 0, 0.6);
-    --glass-bg: rgba(0, 39, 77, 0.85);
-    --shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    --table-header-bg: #001f3f;
-    --table-row-light: #f8f9fa;
-    --table-row-dark: #e2e3e5;
-    --service-bg: #1E293B; /* Slightly lighter blue */
 }
 
 /* General Page Styling */
@@ -37,29 +18,27 @@ body {
     color: var(--text-light);
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     overflow-x: hidden; /* Prevents horizontal scroll on some mobile browsers */
 }
 
-/* Hero Section */
-.hero {
+/* Hero Section */.hero {
     position: relative;
     min-height: 70vh; /* Use min-height for flexibility */
-    padding: 3rem 1rem;
+    padding: 3rem 1rem; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: var(--primary-color);
+    background: linear-gradient(to right, #001F3F, #003366);
     color: var(--text-light);
     box-shadow: inset 0px 0px 50px rgba(255, 215, 0, 0.2);
 }
 
-/* Hero Heading */
-.hero h1 {
+/* Hero Heading */.hero h1 {
     font-size: 3rem;
     font-weight: 700;
     color: var(--secondary-color);
@@ -67,16 +46,14 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Hero Paragraph */
-.hero p {
+/* Hero Paragraph */.hero p {
     font-size: 1.5rem;
     max-width: 800px;
     margin: 1rem auto;
     line-height: 1.6; /* Improved readability */
 }
 
-/* Hero Banner */
-.hero-banner {
+/* Hero Banner */.hero-banner {
     max-width: 80%;
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
@@ -84,8 +61,7 @@ body {
     box-shadow: 0px 4px 12px var(--shadow-color); /* Added subtle shadow */
 }
 
-/* CTA Button */
-.cta-button {
+/* CTA Button */.cta-button {
     display: inline-block;
     background: var(--secondary-color);
     color: var(--primary-color);
@@ -98,15 +74,12 @@ body {
     margin-top: 1.5rem;
     border: none; /* Removed border for a cleaner look */
     box-shadow: 0px 2px 5px var(--shadow-color); /* Added subtle shadow */
-}
-
-.cta-button:hover {
+}.cta-button:hover {
     background: #e6c300;
     transform: scale(1.05);
 }
 
-/* Section Styling (Course Overview, Pricing, etc.) */
-.course-overview,.pricing,.hops-intro,.sales-pitch {
+/* Section Styling (Course Overview, Pricing, etc.) */.course-overview,.pricing,.hops-intro,.sales-pitch {
     text-align: center;
     background: var(--background-light);
     color: var(--text-dark);
@@ -117,26 +90,22 @@ body {
     box-shadow: 0px 4px 12px var(--shadow-color);
 }
 
-/* Section Header */
-.course-overview h2,.pricing h2,.hops-intro h2,.sales-pitch h2 {
+/* Section Header */.course-overview h2,.pricing h2,.hops-intro h2,.sales-pitch h2 {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
     font-weight: 600;
 }
 
-/* Course List */
-.course-overview ul {
+/* Course List */.course-overview ul {
     list-style: none;
     padding: 0;
     display: grid; /* Use grid for better layout */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
     gap: 1rem;
-}
-
-.course-overview li {
+}.course-overview li {
     font-size: 1.2rem;
-    margin: 0;
+    margin: 0; 
     padding: 1rem;
     background: rgba(255, 215, 0, 0.1);
     border-left: 5px solid var(--secondary-color);
@@ -147,15 +116,13 @@ body {
     gap: 1rem;
 }
 
-/* Pricing Text */
-.pricing p {
+/* Pricing Text */.pricing p {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     font-weight: 500;
 }
 
-/* HOPS Intro Styling */
-.hops-intro ul {
+/* HOPS Intro Styling */.hops-intro ul {
     list-style: disc; /* Use disc for list style */
     text-align: left;
     padding-left: 2rem;
@@ -165,24 +132,27 @@ body {
     line-height: 1.5;
 }
 
-/* Chatbot Section Styling */
-.chatbot p {
+/* Chatbot Section Styling */.chatbot p {
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 1rem;
 }
 
-/* Contact Section Styling */
-.contact {
+/* Contact Section Styling */.contact {
     background: var(--accent-color); /* Use accent color for contact section */
     color: var(--text-light);
-}
-
-.contact h2 {
+}.contact h2 {
     color: var(--text-light);
 }
 
-
+/* Footer Styling */
+#footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* Push footer to bottom */
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {

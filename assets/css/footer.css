@@ -1,0 +1,109 @@
+:root {
+    --primary-color: #FFD700; /* Gold */
+    --secondary-color: #001F3F; /* Dark Blue */
+    --light-color: #FFFFFF; /* White (for contrast) */
+    --dark-color: #000000; /* Black (if needed) */
+    --text-opacity: 0.8; /* Opacity for main text */
+    --footer-shadow: rgba(0, 0, 0, 0.2); /* Footer shadow color */
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(to right, var(--secondary-color), var(--tertiary-color), var(--primary-color));
+    color: var(--light-color);
+    padding: 3rem 0;
+    font-size: 1.2rem;
+    box-shadow: 0 -6px 15px var(--footer-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Footer Content */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Footer Logo */
+.footer-logo {
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo img {
+    max-width: 200px;
+    height: auto;
+}
+
+/* Footer Text */
+.footer-content p {
+    margin: 1rem 0;
+    line-height: 1.6;
+    font-weight: 400;
+    opacity: var(--text-opacity);
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 2rem;
+}
+
+.social-icons a {
+    color: var(--light-color);
+    font-size: 1.8rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+    color: var(--primary-color);
+}
+
+/* Legal Links */
+.legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 1rem;
+}
+
+.legal-links a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.legal-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Copyright Notice */
+.copyright {
+    font-size: 0.9rem;
+    opacity: calc(var(--text-opacity) * 0.85); /* Slightly lower opacity for copyright */
+    margin-top: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        text-align: center;
+    }
+
+    .social-icons {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .legal-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
