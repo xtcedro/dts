@@ -81,3 +81,18 @@ CREATE TABLE IF NOT EXISTS chat_history (
     bot_reply TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- ========================================================
+-- Create User & Grant Privileges (Created: 2025-03-22)
+-- ========================================================
+
+-- Create the user (if not already exists)
+CREATE USER IF NOT EXISTS 'webadmin'@'localhost' IDENTIFIED BY 'Password123!';
+
+-- Grant ALL privileges to this user on each database
+GRANT ALL PRIVILEGES ON okdevs_appointments.* TO 'webadmin'@'localhost';
+GRANT ALL PRIVILEGES ON heavenlyroofing_appointments.* TO 'webadmin'@'localhost';
+GRANT ALL PRIVILEGES ON domtech_appointments.* TO 'webadmin'@'localhost';
+
+-- Apply changes
+FLUSH PRIVILEGES;
