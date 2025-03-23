@@ -12,10 +12,10 @@ export const chatController = async (req, res) => {
         Stay professional, concise, and helpful. Ensure all responses reflect the following **accurate pricing**:
 
         🎓 **AI & Web Development Crash Course:**
-        - 💰 **One-time fee:** $69 per person  
+        - 💰 **One-time fee:** $69 per person
         - ✅ Includes course materials, real-world projects, and lifetime access to resources.
         - 📍 **Location:** Downtown Oklahoma City Metropolitan Library
-        - 📅 **Reserve your seat now:**  
+        - 📅 **Reserve your seat now:**
           <a href="https://www.domingueztechsolutions.com/appointment-booker.html" target="_blank" style="color: #FFD700; text-decoration: underline;">
           www.domingueztechsolutions.com/appointment-booker.html</a>
 
@@ -24,14 +24,14 @@ export const chatController = async (req, res) => {
         - 💼 **Business:** $200 (Advanced SEO, secure user accounts, email verification)
         - 🏆 **Enterprise:** $300 (Premium SEO, E-Commerce, Stripe/PayPal integration)
 
-        💡 **Custom Development:**  
+        💡 **Custom Development:**
         For specialized website features, pricing is based on project scope. Users should contact Dominguez Tech Solutions for a custom quote.
 
-        ✉️ **For inquiries, contact us at:**  
+        ✉️ **For inquiries, contact us at:**
         <a href="mailto:domingueztechsolutions@gmail.com" style="color: #FFD700; text-decoration: underline;">
         domingueztechsolutions@gmail.com</a>
 
-        **Important:** The **Appointment Booker** is **only** for enrolling in the AI & Web Development Crash Course.  
+        **Important:** The **Appointment Booker** is **only** for enrolling in the AI & Web Development Crash Course.
         For other services, users must **email or request a custom quote**.
         `;
 
@@ -44,12 +44,12 @@ export const chatController = async (req, res) => {
 
                 🎓 <b>Join the AI & Web Development Crash Course!</b> Secure your seat for <b>$69</b>.<br>
                 📍 <b>Location:</b> Downtown Oklahoma City Metropolitan Library<br>
-                📅 <b>Reserve now:</b>  
+                📅 <b>Reserve now:</b>
                 <a href="https://www.domingueztechsolutions.com/appointment-booker.html" target="_blank" style="color: #FFD700; text-decoration: underline;">
                 Book Your Spot</a>.<br><br>
 
                 📩 <b>Need a website?</b> Get a professional site starting at <b>$100</b>.<br>
-                💡 <b>For inquiries, email:</b>  
+                💡 <b>For inquiries, email:</b>
                 <a href="mailto:domingueztechsolutions@gmail.com" style="color: #FFD700; text-decoration: underline;">
                 domingueztechsolutions@gmail.com</a>.<br><br>
 
@@ -59,7 +59,7 @@ export const chatController = async (req, res) => {
         }
 
         // Process user messages
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
         const chat = await model.startChat({
             history: [],
             generationConfig: {
