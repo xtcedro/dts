@@ -63,7 +63,7 @@ export const chatController = async (req, res) => {
         const chat = await model.startChat({
             history: [],
             generationConfig: {
-                maxOutputTokens: 300, // Limits response length
+                maxOutputTokens: 1000, // Limits response length
                 temperature: 0.7, // Adjusts creativity level
             },
         });
