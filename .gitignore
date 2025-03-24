@@ -9,6 +9,7 @@ yarn-error.log*
 node_modules/
 jspm_packages/
 
+public/assets/videos/*.mp4
 # Environment variables
 .env
 
