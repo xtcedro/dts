@@ -1,26 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Login | OK Devs</title>
-  <link rel="stylesheet" href="assets/css/login.css" />
-  <script type="module" src="assets/js/script.js"></script>
-  <script defer src="assets/js/login.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin login for Dominguez Tech Solutions to manage appointments and payment transactions.">
+    <meta name="keywords" content="Admin Login, Dominguez Tech Solutions, Appointment Management, Payment Dashboard">
+    <meta name="author" content="Pedro Dominguez">
+    <meta property="og:title" content="Dominguez Tech Solutions: Admin Login">
+    <meta property="og:description" content="Secure login portal for the admin to manage backend operations.">
+    <meta property="og:image" content="assets/images/crash-course.png">
+    <meta property="og:url" content="https://www.domingueztechsolutions.com/admin-login.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Admin Login - Dominguez Tech Solutions</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="module" src="assets/js/script.js"></script>
 </head>
 <body>
-  <main class="login-container">
-    <h1>🔐 Admin Login</h1>
-    <form id="login-form">
-      <label for="username">👤 Username</label>
-      <input type="text" id="username" name="username" required />
+    <nav class="navbar"></nav><section class="hero">
+    <img src="assets/images/banner.png" alt="Dominguez Tech Solutions Banner" class="hero-banner">
+    <h1>Admin Portal Login</h1>
+    <p>Access the backend to manage appointments and view payment transactions securely.</p>
+</section>
 
-      <label for="password">🔑 Password</label>
-      <input type="password" id="password" name="password" required />
+<section class="login-form">
+    <h2>Administrator Login</h2>
+    <form action="admin-dashboard.html" method="post" class="form-container">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
 
-      <button type="submit">Login</button>
-      <p id="login-message"></p>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" class="cta-button">Login</button>
     </form>
-  </main>
+</section>
+
+<footer id="footer"></footer>
+
 </body>
 </html>
