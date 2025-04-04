@@ -28,7 +28,6 @@ CREATE TABLE IF NOT EXISTS chat_history (
 
 -- ========================================================
 --  Heavenly Roofing Appointment Database
---  Created: 2025-03-22 | Version: 1.3
 -- ========================================================
 
 CREATE DATABASE IF NOT EXISTS heavenlyroofing_appointments;
@@ -56,7 +55,6 @@ CREATE TABLE IF NOT EXISTS chat_history (
 
 -- ========================================================
 --  Dominguez Tech Solutions Appointment Database
---  Created: 2025-03-22 | Version: 1.3
 -- ========================================================
 
 CREATE DATABASE IF NOT EXISTS domtech_appointments;
@@ -83,16 +81,29 @@ CREATE TABLE IF NOT EXISTS chat_history (
 );
 
 -- ========================================================
--- Create User & Grant Privileges (Created: 2025-03-22)
+-- Admin User Database (NEW)
+-- Created: 2025-03-27
 -- ========================================================
 
--- Create the user (if not already exists)
+CREATE DATABASE IF NOT EXISTS admin_db;
+USE admin_db;
+
+CREATE TABLE IF NOT EXISTS admin_users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ========================================================
+-- Create User & Grant Privileges
+-- ========================================================
+
 CREATE USER IF NOT EXISTS 'webadmin'@'localhost' IDENTIFIED BY 'Password123!';
 
--- Grant ALL privileges to this user on each database
 GRANT ALL PRIVILEGES ON okdevs_appointments.* TO 'webadmin'@'localhost';
 GRANT ALL PRIVILEGES ON heavenlyroofing_appointments.* TO 'webadmin'@'localhost';
 GRANT ALL PRIVILEGES ON domtech_appointments.* TO 'webadmin'@'localhost';
+GRANT ALL PRIVILEGES ON admin_db.* TO 'webadmin'@'localhost';
 
--- Apply changes
 FLUSH PRIVILEGES;
