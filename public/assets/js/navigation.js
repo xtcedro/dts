@@ -16,6 +16,7 @@ navbar.innerHTML = `
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="blogs.html">📝 Blogs</a></li>
                 <li><a href="about.html">🧑‍💻 About Us</a></li>
                 <li><a href="services.html">🛠️ Services</a></li>
                 <li><a href="appointment-booker.html">🗓️ Book an Appointment</a></li>
