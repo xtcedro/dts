@@ -1,38 +1,47 @@
-document.getElementById("login-form").addEventListener("submit", async (event) => {
-  event.preventDefault();
+export async function handleAdminLogin(formSelector, usernameSelector, passwordSelector, messageSelector) {
+  const form = document.querySelector(formSelector);
+  const usernameInput = document.querySelector(usernameSelector);
+  const passwordInput = document.querySelector(passwordSelector);
+  const messageBox = document.querySelector(messageSelector);
 
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const messageBox = document.getElementById("login-message");
-
-  if (!username || !password) {
-    messageBox.textContent = "❌ Please enter both username and password.";
+  if (!form || !usernameInput || !passwordInput || !messageBox) {
+    console.warn("Login form elements not found.");
     return;
   }
 
-  try {
-    const res = await fetch("/api/admin/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-    const data = await res.json();
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
 
-    if (!res.ok) {
-      messageBox.textContent = `❌ ${data.error || "Login failed"}`;
+    if (!username || !password) {
+      messageBox.textContent = "❌ Please enter both username and password.";
       return;
     }
 
-    // Save token to localStorage/sessionStorage
-    localStorage.setItem("adminToken", data.token);
-    messageBox.textContent = "✅ Login successful. Redirecting...";
+    try {
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
 
-    // Redirect to dashboard or admin page
-    setTimeout(() => {
-      window.location.href = "/admin-dashboard.html"; // Update if needed
-    }, 1200);
-  } catch (err) {
-    messageBox.textContent = `❌ ${err.message}`;
-  }
-});
+      const data = await res.json();
+
+      if (!res.ok) {
+        messageBox.textContent = `❌ ${data.error || "Login failed"}`;
+        return;
+      }
+
+      localStorage.setItem("adminToken", data.token);
+      messageBox.textContent = "✅ Login successful. Redirecting...";
+
+      setTimeout(() => {
+        window.location.href = "/admin-dashboard.html";
+      }, 1200);
+    } catch (err) {
+      messageBox.textContent = `❌ ${err.message}`;
+    }
+  });
+}
