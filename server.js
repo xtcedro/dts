@@ -5,6 +5,8 @@ import { db } from "./config/db.js";
 import appointmentRoutes from "./routes/appointments.js";
 import chatRoutes from "./routes/chatRoutes.js";
 import stripeRoutes from "./routes/stripe.js"; // ✅ ESM Import
+import adminRoutes from "./routes/adminRoutes.js";
+
 
 dotenv.config();
 const app = express();
@@ -19,5 +21,6 @@ app.use("/api/stripe", stripeRoutes);
 
 app.use("/api/appointments", appointmentRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/admin", adminRoutes);
 
 app.listen(port, () => console.log(`🚀 Server running on http://localhost:${port}`));
