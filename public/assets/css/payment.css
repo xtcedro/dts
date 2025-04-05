@@ -1,24 +1,6 @@
 /* Font & Colors */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-:root {
-  --primary-color: #000000;
-  --secondary-color: #FFD700;
-  --accent-color: #f1c40f;
-  --text-light: #ffffff;
-  --text-dark: #222222;
-  --error-color: #e74c3c;
-  --input-bg: #1c1c1c;
-}
-
-/* Base Styles */
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  margin: 0;
-  padding: 0;
-}
 
 /* Payment Section */
 .payment-section {
