@@ -24,8 +24,8 @@ export function setupNavigation() {
                 <li><a href="contact.html">📬 Contact</a></li>
                 <li><a href="login.html">🫅 Admin Login</a></li>
             </ul>
-            <div class="cta-container">
-                <a href="payment.html" class="cta-button">💳 Make a Payment</a>
+            <div class="nav-container">
+                <a href="payment.html" class="nav-button">💳 Make a Payment</a>
             </div>
         </div>
         <div class="overlay hidden" id="menu-overlay"></div>
