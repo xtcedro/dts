@@ -1,0 +1,67 @@
+/* Section Wrapper Styles */
+.content-management,
+.system-tools,
+.logout {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings */
+.content-management h2,
+.system-tools h2,
+.logout h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+/* List Styles */
+.content-management ul,
+.system-tools ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content-management li,
+.system-tools li {
+  margin-bottom: 12px;
+}
+
+/* Link Buttons */
+.content-management a,
+.system-tools a {
+  display: block;
+  padding: 12px 16px;
+  background-color: #f7f9fc;
+  color: #007bff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.content-management a:hover,
+.system-tools a:hover {
+  background-color: #e6f0ff;
+  transform: translateX(4px);
+}
+
+/* Logout CTA Button */
+.logout .cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #dc3545;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.logout .cta-button:hover {
+  background-color: #c82333;
+}
