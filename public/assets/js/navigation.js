@@ -1,7 +1,7 @@
-export function setupNavigation() { const navbar = document.querySelector(".navbar");
+export function setupNavigation() {
+  const navbar = document.querySelector(".navbar");
 
-// Insert HTML for the navigation bar with title and menu
-navbar.innerHTML = `
+  navbar.innerHTML = `
     <div class="nav-left">
         <button class="hamburger-menu" id="menu-toggle" aria-label="Open navigation">
             ☰
@@ -24,54 +24,49 @@ navbar.innerHTML = `
                 <li><a href="contact.html">📬 Contact</a></li>
                 <li><a href="login.html">🫅 Admin Login</a></li>
             </ul>
+            <div class="cta-container">
+                <a href="payment.html" class="cta-button">💳 Make a Payment</a>
+            </div>
         </div>
         <div class="overlay hidden" id="menu-overlay"></div>
     </div>
-`;
+  `;
 
-// Get elements
-const menuButton = document.getElementById("menu-toggle");
-const sidebarMenu = document.getElementById("sidebar-menu");
-const closeButton = document.getElementById("close-menu");
-const overlay = document.getElementById("menu-overlay");
+  const menuButton = document.getElementById("menu-toggle");
+  const sidebarMenu = document.getElementById("sidebar-menu");
+  const closeButton = document.getElementById("close-menu");
+  const overlay = document.getElementById("menu-overlay");
 
-// Open Sidebar
-function openMenu() {
+  function openMenu() {
     sidebarMenu.classList.add("visible");
     sidebarMenu.classList.remove("hidden");
     overlay.classList.remove("hidden");
     document.body.classList.add("no-scroll");
-}
+  }
 
-// Close Sidebar
-function closeMenu() {
+  function closeMenu() {
     sidebarMenu.classList.remove("visible");
     sidebarMenu.classList.add("hidden");
     overlay.classList.add("hidden");
     document.body.classList.remove("no-scroll");
-}
+  }
 
-// Event Listeners
-menuButton.addEventListener("click", openMenu);
-closeButton.addEventListener("click", closeMenu);
-overlay.addEventListener("click", closeMenu);
+  menuButton.addEventListener("click", openMenu);
+  closeButton.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
 
-// Close menu on Escape key press
-document.addEventListener("keydown", (event) => {
+  document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && sidebarMenu.classList.contains("visible")) {
-        closeMenu();
+      closeMenu();
     }
-});
+  });
 
-// Highlight the active page
-const currentPath = window.location.pathname.split("/").pop();
-const links = sidebarMenu.querySelectorAll(".nav-links a");
+  const currentPath = window.location.pathname.split("/").pop();
+  const links = sidebarMenu.querySelectorAll(".nav-links a");
 
-links.forEach(link => {
+  links.forEach(link => {
     if (link.getAttribute("href") === currentPath) {
-        link.classList.add("active");
+      link.classList.add("active");
     }
-});
-
+  });
 }
-
