@@ -295,3 +295,58 @@
         margin: 8px auto;
     }
 }
+
+/* Base Styles for Nav Button */
+.nav-container {
+    margin-left: auto;
+    padding-right: 1.5rem;
+}
+
+.nav-button {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
+.nav-button:hover {
+    background: #f1c40f;
+    transform: scale(1.05);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .nav-button {
+        padding: 9px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0.5rem 1rem;
+        text-align: center;
+    }
+
+    .nav-button {
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+}
+
+/* Small Devices */
+@media (max-width: 480px) {
+    .nav-button {
+        font-size: 0.95rem;
+        padding: 10px 0;
+    }
+}
