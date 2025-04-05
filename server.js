@@ -4,23 +4,35 @@ import dotenv from "dotenv";
 import { db } from "./config/db.js";
 import appointmentRoutes from "./routes/appointments.js";
 import chatRoutes from "./routes/chatRoutes.js";
-import stripeRoutes from "./routes/stripe.js"; // ✅ ESM Import
+import stripeRoutes from "./routes/stripe.js";
 import adminRoutes from "./routes/adminRoutes.js";
-
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+console.log("✅ Loading environment variables...");
+console.log(`📦 Environment: ${process.env.NODE_ENV || "development"}`);
+console.log("🔐 Securing Express middleware...");
+
 app.use(express.json());
 app.use(cors());
 app.use(express.static("public"));
 
-// ✅ Register Stripe routes
+console.log("✅ Middleware configured. Registering routes...");
+
 app.use("/api/stripe", stripeRoutes);
+console.log("➡️ Stripe routes loaded at /api/stripe");
 
 app.use("/api/appointments", appointmentRoutes);
-app.use("/api/chat", chatRoutes);
-app.use("/api/admin", adminRoutes);
+console.log("➡️ Appointment routes loaded at /api/appointments");
 
-app.listen(port, () => console.log(`🚀 Server running on http://localhost:${port}`));
+app.use("/api/chat", chatRoutes);
+console.log("➡️ Chat routes loaded at /api/chat");
+
+app.use("/api/admin", adminRoutes);
+console.log("➡️ Admin routes loaded at /api/admin");
+
+app.listen(port, () => {
+  console.log(`🚀 Server is live at: http://localhost:${port}`);
+});
