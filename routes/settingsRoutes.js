@@ -3,7 +3,17 @@ import { getSiteSettings, updateSiteSettings } from "../controllers/settingsCont
 
 const router = express.Router();
 
-router.get("/", getSiteSettings);
-router.post("/", updateSiteSettings);
+// GET /api/settings
+router.get("/", (req, res, next) => {
+  console.log("📥 GET /api/settings hit");
+  getSiteSettings(req, res, next);
+});
+
+// POST /api/settings
+router.post("/", (req, res, next) => {
+  console.log("🛠️ POST /api/settings hit");
+  console.log("🔧 Incoming Payload:", req.body);
+  updateSiteSettings(req, res, next);
+});
 
 export default router;
