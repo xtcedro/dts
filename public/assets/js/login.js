@@ -1,8 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#loginForm");
-  const usernameInput = document.querySelector("#username");
-  const passwordInput = document.querySelector("#password");
-  const messageBox = document.querySelector("#loginMessage");
+export function handleAdminLogin(
+  formSelector = "#loginForm",
+  usernameSelector = "#username",
+  passwordSelector = "#password",
+  messageSelector = "#loginMessage"
+) {
+  const form = document.querySelector(formSelector);
+  const usernameInput = document.querySelector(usernameSelector);
+  const passwordInput = document.querySelector(passwordSelector);
+  const messageBox = document.querySelector(messageSelector);
 
   if (!form || !usernameInput || !passwordInput || !messageBox) {
     console.warn("Login form elements not found.");
@@ -44,4 +49,4 @@ document.addEventListener("DOMContentLoaded", () => {
       messageBox.textContent = `❌ ${err.message}`;
     }
   });
-});
+}
