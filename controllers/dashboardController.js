@@ -1,15 +1,15 @@
 export const getDashboardOverview = (req, res) => {
   res.status(200).json({
-    message: "Welcome to the Admin Dashboard!",
-    content: [
-      "Manage Content",
-      "Track Performance",
-      "Customize AI Web Presence"
+    welcomeMessage: "Welcome to the Admin Dashboard!",
+    contentSections: [
+      { label: "➕ Add Blog Post", link: "add-blog.html" },
+      { label: "✏️ Edit Blog Posts", link: "edit-blogs.html" },
+      { label: "📅 Manage Appointments", link: "manage-appointments.html" },
     ],
-    tools: [
-      "Analytics",
-      "User Messages",
-      "Settings"
+    systemTools: [
+      { label: "📊 View Site Analytics", link: "site-analytics.html" },
+      { label: "📨 User Messages", link: "user-messages.html" },
+      { label: "⚙️ Site Settings", link: "settings.html" },
     ]
   });
 };
