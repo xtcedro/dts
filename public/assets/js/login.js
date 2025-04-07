@@ -1,8 +1,8 @@
-export async function handleAdminLogin(formSelector, usernameSelector, passwordSelector, messageSelector) {
-  const form = document.querySelector(formSelector);
-  const usernameInput = document.querySelector(usernameSelector);
-  const passwordInput = document.querySelector(passwordSelector);
-  const messageBox = document.querySelector(messageSelector);
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("#loginForm");
+  const usernameInput = document.querySelector("#username");
+  const passwordInput = document.querySelector("#password");
+  const messageBox = document.querySelector("#loginMessage");
 
   if (!form || !usernameInput || !passwordInput || !messageBox) {
     console.warn("Login form elements not found.");
@@ -44,4 +44,4 @@ export async function handleAdminLogin(formSelector, usernameSelector, passwordS
       messageBox.textContent = `❌ ${err.message}`;
     }
   });
-}
+});
