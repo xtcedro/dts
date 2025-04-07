@@ -21,7 +21,7 @@ export function setupNavigation() {
           ${isAdmin ? `
             <li><a href="admin-appointments.html">📋 Manage Appointments</a></li>
             <li><a href="transactions.html">💰 View Transactions</a></li>
-            <li><a href="edit-contact.html">✏️ Edit Contact Info</a></li>
+            <li><a href="settings.html">✏️ Site Settings</a></li>
             <li><a href="#" id="logout-link">🚪 Logout</a></li>
           ` : `
             <li><a href="index.html">🏠 Home</a></li>
