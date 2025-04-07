@@ -95,6 +95,31 @@ CREATE TABLE IF NOT EXISTS admin_users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Assumes you're already connected to your database (e.g. genesis_db)
+
+DROP TABLE IF EXISTS site_settings;
+
+CREATE TABLE site_settings (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  site_title VARCHAR(100) NOT NULL,
+  contact_email VARCHAR(100) NOT NULL,
+  business_phone VARCHAR(20) NOT NULL,
+  homepage_banner TEXT NOT NULL,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO site_settings (
+  site_title,
+  contact_email,
+  business_phone,
+  homepage_banner
+) VALUES (
+  'Dominguez Tech Solutions',
+  'domingueztechsolutions@gmail.com',
+  '+1 (405) 123-4567',
+  'Empower Your Business with AI'
+);
+
 -- ========================================================
 -- Create User & Grant Privileges
 -- ========================================================
