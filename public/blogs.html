@@ -3,69 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore expert insights on AI, automation, and web development from Dominguez Tech Solutions." />
-  <meta name="keywords" content="AI Blog, Tech News, Web Development, Dominguez Tech Solutions, Automation, Business Tips" />
-  <meta name="author" content="Pedro Dominguez" />
-  <meta property="og:title" content="Dominguez Tech Solutions: Blogs & Insights" />
-  <meta property="og:description" content="Stay updated with the latest trends in AI and tech with our expert blogs." />
-  <meta property="og:image" content="assets/images/blogs-preview.png" />
-  <meta property="og:url" content="https://www.domingueztechsolutions.com/blogs.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <title>Dominguez Tech Insights & Blogs</title>
+  <meta name="description" content="Read our latest blog posts and updates from Dominguez Tech Solutions." />
+  <title>Blog - Dominguez Tech Solutions</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Font Awesome (optional for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <!-- JS -->
   <script type="module" src="assets/js/script.js"></script>
 </head>
-
 <body>
   <!-- Navigation -->
   <nav class="navbar"></nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
-    <img src="assets/images/banner.png" alt="Dominguez Tech Blog Banner" class="hero-banner" />
-    <h1>🧠 Expert Insights on AI, Automation & Innovation</h1>
-    <p>From automation strategies to emerging AI frameworks — discover how we’re shaping the future of technology.</p>
+    <h1>📰 Our Blog</h1>
+    <p>Stay up to date with the latest from <strong>Dominguez Tech Solutions</strong>.</p>
   </section>
 
-  <!-- Blog Listings -->
-  <section class="blog-listing">
-    <h2>📚 Featured Articles</h2>
-    <div class="blog-cards">
-
-      <!-- Blog Card: HOPS -->
-      <article class="blog-card">
-        <img src="assets/images/blog1.jpg" alt="HOPS AI Framework" />
-        <h3><a href="hops.html">Introducing HOPS: The AI Execution Framework</a></h3>
-        <p>Transform how you deploy AI. HOPS offers a scalable, secure system for production-ready prompt engineering and real-world automation.</p>
-        <a href="hops.html" class="read-more">Read More →</a>
-      </article>
-
-      <!-- Blog Card: Crash Course -->
-      <article class="blog-card">
-        <img src="assets/images/blog2.jpg" alt="Crash Course AI Web Dev" />
-        <h3><a href="crashcourse.html">2025 Crash Course: AI & Web Dev for Business</a></h3>
-        <p>Hands-on, real-world training to launch your brand into the AI-driven era. Join us in Oklahoma City or learn remotely!</p>
-        <a href="crashcourse.html" class="read-more">Read More →</a>
-      </article>
-
-      <!-- Blog Card: Support -->
-      <article class="blog-card">
-        <img src="assets/images/blog3.jpg" alt="Support DominguezTech" />
-        <h3><a href="support.html">Support Our Tech Empowerment Mission</a></h3>
-        <p>Learn how your support accelerates AI innovation, entrepreneurship, and community tech education across Oklahoma and beyond.</p>
-        <a href="support.html" class="read-more">Read More →</a>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="contact">
-    <h2>Looking to Use AI to Accelerate Your Business? 🚀</h2>
-    <a href="contact.html" class="cta-button">Let’s Talk Today</a>
+  <!-- Blog List -->
+  <section class="blog-list" style="max-width: 800px; margin: auto; padding: 2rem;">
+    <div id="blogContainer">Loading blog posts...</div>
   </section>
 
   <!-- Footer -->
   <footer id="footer"></footer>
+
+  <!-- Blog Fetch Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const container = document.getElementById("blogContainer");
+      container.innerHTML = "Loading...";
+
+      try {
+        const res = await fetch("/api/blogs");
+        const blogs = await res.json();
+
+        if (!Array.isArray(blogs) || blogs.length === 0) {
+          container.innerHTML = "<p>No blog posts found.</p>";
+          return;
+        }
+
+        container.innerHTML = ""; // Clear loading text
+
+        blogs.forEach(blog => {
+          const post = document.createElement("article");
+          post.style = `
+            background: #0a0f1f;
+            color: #fff;
+            border-left: 5px solid gold;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+          `;
+
+          post.innerHTML = `
+            <h2 style="color: gold;">${blog.title}</h2>
+            <p style="font-weight: bold;">by ${blog.author} &middot; <span style="font-size: 0.9rem;">${new Date(blog.created_at).toLocaleDateString()}</span></p>
+            <p style="margin-top: 1rem;">${blog.summary}</p>
+            <details style="margin-top: 1rem;">
+              <summary style="cursor: pointer; color: #ffd700;">Read Full Post</summary>
+              <div style="margin-top: 1rem;">${blog.content}</div>
+            </details>
+          `;
+
+          container.appendChild(post);
+        });
+      } catch (err) {
+        console.error("Blog fetch error:", err);
+        container.innerHTML = "<p style='color:red;'>⚠️ Failed to load blog posts.</p>";
+      }
+    });
+  </script>
 </body>
 </html>
