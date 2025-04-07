@@ -1,4 +1,4 @@
-import { requireAdminToken } from './utils/auth.js';
+import { requireAdminToken } from './assets/js/auth.js';
 import { loadHeader, loadFooter } from './load-components.js';
 import { setupNavigation } from './navigation.js';
 import { initAnimations } from './animations.js';
