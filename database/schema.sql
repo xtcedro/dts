@@ -53,6 +53,16 @@ CREATE TABLE IF NOT EXISTS chat_history (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS roofing_projects (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255),
+  location VARCHAR(255),
+  description TEXT,
+  image_paths JSON,
+  date_completed DATE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- ========================================================
 --  Dominguez Tech Solutions Appointment Database
 -- ========================================================
