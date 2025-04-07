@@ -42,6 +42,9 @@ console.log("➡️ Dashboard routes loaded at /api/dashboard");
 app.use("/api/settings", settingsRoutes);
 console.log("➡️ Settings routes loaded at /api/settings");
 
+app.use("/api/blogs", blogRoutes);
+console.log("➡️ Blogs routes loaded at /api/blogs");
+
 app.listen(port, () => {
   console.log(`🚀 Server is live at: http://localhost:${port}`);
 });
