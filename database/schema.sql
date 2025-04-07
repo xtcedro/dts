@@ -120,6 +120,20 @@ INSERT INTO site_settings (
   'Empower Your Business with AI'
 );
 
+-- Drop if it exists (for development resets)
+DROP TABLE IF EXISTS blogs;
+
+-- Create the blogs table
+CREATE TABLE blogs (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  author VARCHAR(100) NOT NULL,
+  summary TEXT NOT NULL,
+  content LONGTEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
 -- ========================================================
 -- Create User & Grant Privileges
 -- ========================================================
