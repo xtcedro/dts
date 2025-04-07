@@ -1,4 +1,4 @@
-import { requireAdminToken } from './utils/auth.js';
+import { requireAdminToken } from './auth.js';
 import { loadHeader, loadFooter } from './load-components.js';
 import { setupNavigation } from './navigation.js';
 import { initAnimations } from './animations.js';
@@ -23,15 +23,4 @@ document.addEventListener("DOMContentLoaded", () => {
     requireAdminToken();
   }
 
-  // Stripe only for payment pages
-  if (path.endsWith("payment.html")) {
-    const stripeConfig = initializeStripe(
-      "pk_live_...", // Replace with real key
-      "#card-element",
-      "donation-amount",
-      "donate-button",
-      "payment-message"
-    );
-    handleDonation(stripeConfig);
-  }
 });
