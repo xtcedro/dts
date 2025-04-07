@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   handleAdminLogin("#loginForm", "#username", "#password", "#loginMessage");
 
   // Admin-only protection
-  requireAdminToken();
 
   // Stripe payment handler
   const stripeConfig = initializeStripe(
