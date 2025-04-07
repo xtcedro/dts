@@ -34,7 +34,7 @@ console.log("➡️ Chat routes loaded at /api/chat");
 app.use("/api/admin", adminRoutes);
 console.log("➡️ Admin routes loaded at /api/admin");
 
-app.use("/api/dashboard", dashRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 console.log("➡️ Dashboard routes loaded at /api/dashboard");
 
 app.listen(port, () => {
