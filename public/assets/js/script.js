@@ -29,9 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     requireAdminToken();
   }
 
-<<<<<<< HEAD
-});
-=======
   // ✅ Stripe logic only for payment page
   if (path.endsWith("payment.html")) {
     const stripeConfig = initializeStripe(
@@ -44,4 +41,3 @@ document.addEventListener("DOMContentLoaded", () => {
     handleDonation(stripeConfig);
   }
 });
->>>>>>> refs/remotes/origin/main
