@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Edit your blog posts - Dominguez Tech Solutions" />
+  <title>Edit Blog Posts - Dominguez Tech Solutions</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script type="module" src="assets/js/script.js"></script>
+</head>
+<body>
+  <nav class="navbar"></nav>
+
+  <main>
+    <section class="settings-form-wrapper">
+      <h1 style="text-align: center; color: gold;">✏️ Edit Blog Post</h1>
+
+      <form class="settings-form" id="editBlogForm">
+        <div class="form-group">
+          <label for="blogSelect">Select a blog post</label>
+          <select id="blogSelect" required>
+            <option value="">-- Choose a post --</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="editTitle">Title</label>
+          <input type="text" id="editTitle" name="editTitle" required />
+        </div>
+
+        <div class="form-group">
+          <label for="editAuthor">Author</label>
+          <input type="text" id="editAuthor" name="editAuthor" required />
+        </div>
+
+        <div class="form-group">
+          <label for="editSummary">Summary</label>
+          <textarea id="editSummary" name="editSummary" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="editContent">Content</label>
+          <textarea id="editContent" name="editContent" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Save Changes</button>
+        <p id="editMessage" class="response-message info" style="margin-top: 15px; display: none;"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script>
+    let blogs = [];
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const blogSelect = document.getElementById("blogSelect");
+      const form = document.getElementById("editBlogForm");
+      const messageBox = document.getElementById("editMessage");
+
+      try {
+        const res = await fetch("/api/blogs");
+        blogs = await res.json();
+
+        blogs.forEach(blog => {
+          const option = document.createElement("option");
+          option.value = blog.id;
+          option.textContent = blog.title;
+          blogSelect.appendChild(option);
+        });
+      } catch (err) {
+        blogSelect.innerHTML = "<option>Failed to load blogs</option>";
+      }
+
+      blogSelect.addEventListener("change", () => {
+        const selected = blogs.find(b => b.id == blogSelect.value);
+        if (selected) {
+          form.editTitle.value = selected.title;
+          form.editAuthor.value = selected.author;
+          form.editSummary.value = selected.summary;
+          form.editContent.value = selected.content;
+        }
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const blogId = blogSelect.value;
+        if (!blogId) return;
+
+        const updatedPost = {
+          title: form.editTitle.value,
+          author: form.editAuthor.value,
+          summary: form.editSummary.value,
+          content: form.editContent.value,
+        };
+
+        try {
+          const res = await fetch(`/api/blogs/${blogId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedPost),
+          });
+
+          const data = await res.json();
+
+          if (!res.ok) {
+            messageBox.textContent = data.error || "❌ Update failed.";
+            messageBox.className = "response-message error show";
+          } else {
+            messageBox.textContent = "✅ Blog post updated!";
+            messageBox.className = "response-message success show";
+          }
+          messageBox.style.display = "block";
+        } catch (err) {
+          messageBox.textContent = "❌ Server error.";
+          messageBox.className = "response-message error show";
+          messageBox.style.display = "block";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
