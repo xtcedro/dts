@@ -6,6 +6,7 @@ import { initializeChatbot } from './chatbot.js';
 import { fetchAppointments } from './public-appointments.js';
 import { submitAppointments } from './appointment-booker.js';
 import { initializeStripe, handleDonation } from './stripeHandler.js';
+import { handleAdminLogin } from './assets/js/login.js'; // ✅ Admin login module
 
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
@@ -18,15 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchAppointments();
   submitAppointments();
 
-  // Restrict certain pages
+  // ✅ Admin login logic for login page
+  if (path.endsWith("login.html")) {
+    handleAdminLogin("#loginForm", "#username", "#password", "#loginMessage");
+  }
+
+  // ✅ Restrict access to public-appointments.html
   if (path.endsWith("public-appointments.html")) {
     requireAdminToken();
   }
 
-  // Stripe only for payment pages
+  // ✅ Stripe logic only for payment page
   if (path.endsWith("payment.html")) {
     const stripeConfig = initializeStripe(
-      "pk_live_...", // Replace with real key
+      "pk_live_51QsBMaB2ZF7d2k3EpiLM1QRwI3s2RL2PJl57Ctkl0tAxouh6kcP9F580Iyo3eW6qVTGix5f6eQdXNHmMgOxyO2Td00KiYFudmT", // ✅ Live Stripe Key
       "#card-element",
       "donation-amount",
       "donate-button",
