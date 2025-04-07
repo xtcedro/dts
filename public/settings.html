@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Site Settings - Dominguez Tech Solutions" />
+  <meta name="author" content="Pedro Dominguez" />
+  <title>Site Settings | Dominguez Tech Solutions</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script type="module" src="assets/js/script.js"></script>
+</head>
+<body>
+  <nav class="navbar"></nav>
+
+  <main class="settings-section">
+    <section class="hero">
+      <img src="assets/images/settings-banner.png" alt="Settings Banner" class="hero-banner" />
+      <h1>⚙️ Site Settings</h1>
+      <p>Configure your platform name, contact details, and site preferences below.</p>
+      <a href="admin-dashboard.html" class="cta-button">Back to Dashboard</a>
+    </section>
+
+    <section class="settings-form-wrapper">
+      <form class="settings-form">
+        <div class="form-group">
+          <label for="siteTitle">Website Title</label>
+          <input type="text" id="siteTitle" name="siteTitle" placeholder="Dominguez Tech Solutions" />
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail">Contact Email</label>
+          <input type="email" id="contactEmail" name="contactEmail" placeholder="you@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="businessPhone">Business Phone</label>
+          <input type="tel" id="businessPhone" name="businessPhone" placeholder="+1 (405) 123-4567" />
+        </div>
+
+        <div class="form-group">
+          <label for="homepageBanner">Homepage Banner Title</label>
+          <input type="text" id="homepageBanner" name="homepageBanner" placeholder="Empower Your Business with AI" />
+        </div>
+
+        <button type="submit" class="cta-button">Save Settings</button>
+      </form>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+</body>
+</html>
