@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { requireAdminToken } from './auth.js';
-=======
-import { requireAdminToken } from './assets/js/auth.js';
->>>>>>> refs/remotes/origin/main
 import { loadHeader, loadFooter } from './load-components.js';
 import { setupNavigation } from './navigation.js';
 import { initAnimations } from './animations.js';
@@ -10,7 +6,7 @@ import { initializeChatbot } from './chatbot.js';
 import { fetchAppointments } from './public-appointments.js';
 import { submitAppointments } from './appointment-booker.js';
 import { initializeStripe, handleDonation } from './stripeHandler.js';
-import { handleAdminLogin } from './assets/js/login.js'; // ✅ Admin login module
+import { handleAdminLogin } from './login.js'; // ✅ Admin login module
 
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
