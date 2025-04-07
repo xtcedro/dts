@@ -39,7 +39,7 @@ app.use("/api/dashboard", dashboardRoutes);
 console.log("➡️ Dashboard routes loaded at /api/dashboard");
 
 app.use("/api/settings", settingsRoutes);
-console.log("➡️ Settings routes loaded at /api/dashboard");
+console.log("➡️ Settings routes loaded at /api/settings");
 
 app.listen(port, () => {
   console.log(`🚀 Server is live at: http://localhost:${port}`);
