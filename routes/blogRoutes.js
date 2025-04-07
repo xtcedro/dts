@@ -7,8 +7,24 @@ import {
 
 const router = express.Router();
 
-router.get("/", getAllBlogs);
-router.post("/", createBlogPost);
-router.put("/:id", updateBlogPost); // ✅ New PUT route
+// GET all blogs
+router.get("/", (req, res, next) => {
+  console.log("📡 [GET] /api/blogs - Fetching all blog posts...");
+  getAllBlogs(req, res, next);
+});
+
+// POST a new blog
+router.post("/", (req, res, next) => {
+  console.log("📝 [POST] /api/blogs - Creating a new blog post...");
+  console.log("📦 Request Body:", req.body);
+  createBlogPost(req, res, next);
+});
+
+// PUT update a blog
+router.put("/:id", (req, res, next) => {
+  console.log(`✏️ [PUT] /api/blogs/${req.params.id} - Updating blog post...`);
+  console.log("🛠️ Updated Data:", req.body);
+  updateBlogPost(req, res, next);
+});
 
 export default router;
