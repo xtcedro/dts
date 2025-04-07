@@ -5,6 +5,7 @@ import { initializeChatbot } from './chatbot.js';
 import { fetchAppointments } from './public-appointments.js';
 import { submitAppointments } from './appointment-booker.js';
 import { initializeStripe, handleDonation } from './stripeHandler.js';
+import { handleAdminLogin } from './login.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeChatbot();
   fetchAppointments();
   submitAppointments();
+  handleAdminLogin();
 
   // ✅ Stripe logic only for payment page
   if (path.endsWith("payment.html")) {
