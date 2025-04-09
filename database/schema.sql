@@ -107,7 +107,22 @@ CREATE TABLE IF NOT EXISTS admin_users (
 
 -- Assumes you're already connected to your database (e.g. genesis_db)
 
+CREATE TABLE site_settings (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  site_key VARCHAR(50) NOT NULL UNIQUE, -- New: Unique identifier for each site
+  site_title VARCHAR(100) NOT NULL,
+  contact_email VARCHAR(100) NOT NULL,
+  business_phone VARCHAR(20) NOT NULL,
+  homepage_banner TEXT NOT NULL,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
 
+INSERT INTO site_settings (
+  site_key, site_title, contact_email, business_phone, homepage_banner
+) VALUES
+  ('okdevs', 'OKDevs Appointment Portal', 'okdevs@gmail.com', '+1 (405) 222-2222', 'Book Your Dev Session Today!'),
+  ('heavenly', 'Heavenly Roofing LLC', 'support@heavenlyroofing.com', '+1 (405) 333-3333', 'Protecting Your Home, One Roof at a Time'),
+  ('domtech', 'Dominguez Tech Solutions', 'domingueztechsolutions@gmail.com', '+1 (405) 123-4567', 'Empower Your Business with AI');
 
 -- Drop if it exists (for development resets)
 DROP TABLE IF EXISTS blogs;
