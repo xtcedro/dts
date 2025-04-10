@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeChatbot();
   fetchAppointments();
   submitAppointments();
-  
+
 
   // ✅ Stripe logic only for payment page
   if (path.endsWith("payment.html")) {
