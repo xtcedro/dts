@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS admin_users (
 
 -- Assumes you're already connected to your database (e.g. genesis_db)
 
-CREATE TABLE site_settings (
+CREATE TABLE IF NOT EXISTS site_settings (
   id INT PRIMARY KEY AUTO_INCREMENT,
   site_key VARCHAR(50) NOT NULL UNIQUE, -- New: Unique identifier for each site
   site_title VARCHAR(100) NOT NULL,
