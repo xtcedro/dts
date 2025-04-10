@@ -98,11 +98,14 @@ CREATE TABLE IF NOT EXISTS chat_history (
 CREATE DATABASE IF NOT EXISTS admin_db;
 USE admin_db;
 
+
 CREATE TABLE IF NOT EXISTS admin_users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
+    site_key VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_site_user (site_key, username)
 );
 
 -- Assumes you're already connected to your database (e.g. genesis_db)
