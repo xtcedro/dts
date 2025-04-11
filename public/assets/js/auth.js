@@ -6,3 +6,6 @@ function requireAdminToken(redirectUrl = "login.html") {
     window.location.href = redirectUrl;
   }
 }
+
+// Immediately check for token when script runs
+requireAdminToken();
