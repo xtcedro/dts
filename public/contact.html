@@ -51,20 +51,23 @@
   <!-- Footer Section -->
   <footer id="footer"></footer>
 
-  <!-- Script to Fetch Settings -->
   <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      try {
-        const res = await fetch("/api/settings");
-        const data = await res.json();
+  document.addEventListener("DOMContentLoaded", async () => {
+    try {
+      const res = await fetch("/api/settings?site=heavenlyroofing");
+      const data = await res.json();
 
-        document.getElementById("contact-email").textContent = data.contact_email;
-        document.getElementById("contact-email").href = "mailto:" + data.contact_email;
-        document.getElementById("contact-phone").textContent = data.business_phone;
-      } catch (err) {
-        console.warn("⚠️ Failed to load contact info.");
-      }
-    });
-  </script>
+      const emailLink = document.getElementById("contact-email");
+      emailLink.textContent = data.contact_email;
+      emailLink.href = "mailto:" + data.contact_email;
+
+      const phoneLink = document.getElementById("contact-phone");
+      phoneLink.textContent = data.business_phone;
+      phoneLink.href = "tel:" + data.business_phone.replace(/[^0-9+]/g, "");
+    } catch (err) {
+      console.warn("⚠️ Failed to load contact info.");
+    }
+  });
+</script>
 </body>
 </html>
