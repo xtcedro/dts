@@ -87,6 +87,21 @@
   }
 }
 
+.password-change {
+  text-align: center;
+  background-color: #1a1a1a;
+  margin: 40px auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.password-change h2 {
+  color: gold;
+  margin-bottom: 1rem;
+}
+
+
 /* Mobile Responsive */
 @media (max-width: 600px) {
   .login-section {
