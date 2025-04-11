@@ -1,4 +1,4 @@
-export function requireAdminToken(redirectUrl = "login.html") {
+function requireAdminToken(redirectUrl = "login.html") {
   const token = localStorage.getItem("adminToken");
 
   if (!token) {
