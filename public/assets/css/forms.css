@@ -1,206 +1,197 @@
-/* ✅ Import Google Font */
+/* 🌐 Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* ✅ Global Color Variables */
+/* 🎨 Global Color Variables */
 :root {
-    --primary-color: #001F3F; /* Deep Navy */
-    --secondary-color: #FFD700; /* Gold */
-    --text-light: #ffffff;
-    --text-dark: #222222;
-    --background-light: #F8F9FA;
-    --input-bg: #1F2937;
-    --border-color: #FFD700;
-    --shadow-color: rgba(0, 0, 0, 0.15);
+  --primary-color: #001F3F;         /* Professional Navy Blue */
+  --secondary-color: #FFD700;       /* Signature Gold */
+  --text-light: #ffffff;
+  --text-dark: #222222;
+  --background-light: #F8F9FA;
+  --input-bg: #1F2937;
+  --border-color: #FFD700;
+  --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
-/* ✅ Appointment Booker Section */
+/* 🗓️ Appointment Booker Container */
 .appointment-booker {
-    background: var(--text-light);
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0px 8px 18px var(--shadow-color);
-    border-left: 6px solid var(--secondary-color);
-    animation: fadeInUp 0.8s ease-in-out;
+  background: var(--text-light);
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px var(--shadow-color);
+  border-left: 6px solid var(--secondary-color);
+  animation: fadeInUp 0.8s ease-in-out;
 }
 
-/* ✅ Section Header */
+/* 🧩 Section Title */
 .appointment-booker h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.2rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-/* ✅ Urgency Message */
+/* ⚡ Call to Action Highlight */
 .urgent {
-    font-size: 1.3rem;
-    color: var(--primary-color);
-    font-weight: bold;
-    background: rgba(255, 215, 0, 0.15);
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border: 2px solid var(--secondary-color);
-    text-transform: uppercase;
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  background: rgba(255, 215, 0, 0.15);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 2px solid var(--secondary-color);
+  text-transform: uppercase;
 }
 
-/* ✅ Form Styling */
+/* 📋 Form Container */
 .appointment-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 15px;
 }
 
-/* ✅ Form Groups */
+/* 🧱 Form Group Layout */
 .form-group {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
-/* ✅ Labels */
+/* 🏷️ Form Labels */
 .form-group label {
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--primary-color);
-    font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--primary-color);
+  font-size: 1rem;
 }
 
-/* ✅ Input Fields */
-input, select, textarea {
-    padding: 14px;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
-    background: var(--text-light);
-    color: var(--text-dark);
-    transition: all 0.3s ease-in-out;
-    box-shadow: inset 0px 2px 5px var(--shadow-color);
-}
-
-/* ✅ Input Focus Effect */
-input:focus, select:focus, textarea:focus {
-    border-color: var(--secondary-color);
-    outline: none;
-    box-shadow: 0px 0px 8px var(--secondary-color);
-}
-
-/* ✅ Textarea */
+/* ✍️ Inputs & Selects */
+input,
+select,
 textarea {
-    resize: none;
-    min-height: 120px;
+  padding: 14px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  background: var(--text-light);
+  color: var(--text-dark);
+  transition: all 0.3s ease-in-out;
+  box-shadow: inset 0 2px 5px var(--shadow-color);
 }
 
-/* ✅ Buttons */
+/* ✨ Field Focus Styling */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 8px var(--secondary-color);
+}
+
+/* 📝 Multiline Text Area */
+textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+/* 🚀 Primary Button Style */
 .btn {
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    font-size: 1.3rem;
-    padding: 16px;
-    text-decoration: none;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0px 4px 10px var(--shadow-color);
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  padding: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: all 0.3s ease-in-out;
 }
 
-/* ✅ Hover Effect */
+/* 🪄 Button Hover Animation */
 .btn:hover {
-    background: #e6c300;
-    transform: scale(1.08);
-    box-shadow: 0px 6px 18px rgba(255, 215, 0, 0.5);
+  background: #e6c300;
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.5);
 }
 
-/* ✅ Response Messages */
+/* 📨 Feedback Message Box */
 .response-message {
-    padding: 15px;
-    font-weight: 600;
-    border-radius: 8px;
-    display: none;
-    text-align: center;
-    font-size: 1.1rem;
-    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1rem;
+  display: none;
+  transition: opacity 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ✅ Success Message */
+/* ✅ Success */
 .response-message.success {
-    background-color: #28a745; /* Green */
-    color: var(--text-light);
-    border-left: 5px solid #218838;
+  background-color: #28a745;
+  color: var(--text-light);
+  border-left: 5px solid #218838;
 }
 
-/* ✅ Error Message */
+/* ❌ Error */
 .response-message.error {
-    background-color: #dc3545; /* Red */
-    color: var(--text-light);
-    border-left: 5px solid #c82333;
+  background-color: #dc3545;
+  color: var(--text-light);
+  border-left: 5px solid #c82333;
 }
 
-/* ✅ Info Message */
+/* ⚠️ Info */
 .response-message.info {
-    background-color: #ffc107; /* Yellow */
-    color: var(--text-dark);
-    border-left: 5px solid #e0a800;
+  background-color: #ffc107;
+  color: var(--text-dark);
+  border-left: 5px solid #e0a800;
 }
 
-/* ✅ Fade-in Effect */
+/* 👁️ Show Message */
 .response-message.show {
-    display: block;
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🔍 View Appointments CTA */
+.view-appointments {
+  display: block;
+  text-align: center;
+  margin: 25px auto;
+}
+
+/* 🌀 Entry Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
     opacity: 1;
     transform: translateY(0);
+  }
 }
 
-/* ✅ View Appointments Button */
-.view-appointments {
-    display: block;
-    text-align: center;
-    margin: 25px auto;
-}
-
-/* ✅ Fade-in Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ✅ Responsive Design */
+/* 📱 Responsive Adjustments */
 @media (max-width: 768px) {
-    .appointment-booker {
-        max-width: 90%;
-        padding: 2rem;
-    }
+  .appointment-booker {
+    max-width: 90%;
+    padding: 2rem;
+  }
 
-    .btn {
-        font-size: 1.2rem;
-        padding: 14px;
-    }
-}
-
-/* ✅ Glowing Pulse Animation */
-@keyframes pulseGlow {
-    from {
-        box-shadow: 0px 0px 8px rgba(255, 215, 0, 0.5);
-    }
-    to {
-        box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.8);
-        transform: scale(1.03);
-    }
+  .btn {
+    font-size: 1.2rem;
+    padding: 14px;
+  }
 }
