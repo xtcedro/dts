@@ -135,6 +135,15 @@ CREATE TABLE blogs (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+CREATE TABLE contact_messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  phone VARCHAR(20),
+  message TEXT NOT NULL,
+  submitted_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
 -- ========================================================
 -- Create User & Grant Privileges
 -- ========================================================
