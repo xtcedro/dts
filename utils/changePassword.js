@@ -16,8 +16,9 @@ function ask(question) {
 
 async function changePassword() {
   try {
-    const username = await ask("Enter admin username: ");
+    const siteKey = await ask("Enter site key: ");
     const newPassword = await ask("Enter new password: ");
+    const username = "admin";
 
     const hash = await bcrypt.hash(newPassword, 12);
 
@@ -29,16 +30,16 @@ async function changePassword() {
     });
 
     const [rows] = await db.execute(
-      "SELECT * FROM admin_users WHERE username = ?",
-      [username]
+      "SELECT * FROM admin_users WHERE site_key = ? AND username = ?",
+      [siteKey, username]
     );
 
     if (rows.length === 0) {
-      console.log("❌ Admin user not found.");
+      console.log("❌ Admin user not found for the given site key.");
     } else {
       await db.execute(
-        "UPDATE admin_users SET password_hash = ? WHERE username = ?",
-        [hash, username]
+        "UPDATE admin_users SET password_hash = ? WHERE site_key = ? AND username = ?",
+        [hash, siteKey, username]
       );
       console.log("✅ Password updated successfully.");
     }
