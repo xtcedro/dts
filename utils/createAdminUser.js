@@ -15,6 +15,7 @@ function ask(question) {
 
 async function createAdmin() {
   try {
+    const siteKey = await ask("Enter site key (e.g. domtech): ");
     const username = await ask("Enter admin username: ");
     const password = await ask("Enter admin password: ");
     const hash = await bcrypt.hash(password, 12);
@@ -27,8 +28,8 @@ async function createAdmin() {
     });
 
     await db.execute(
-      "INSERT INTO admin_users (username, password_hash) VALUES (?, ?)",
-      [username, hash]
+      "INSERT INTO admin_users (site_key, username, password_hash) VALUES (?, ?, ?)",
+      [siteKey, username, hash]
     );
 
     console.log("✅ Admin created in MySQL.");
